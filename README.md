@@ -12,7 +12,7 @@ The bump-on-tail instability arises when an energetic electron beam is superimpo
 
 Rather than solving the full Vlasov–Poisson system on a spatial grid, this notebook adopts a **single-mode approximation**:
 
-- The electric field is restricted to one Langmuir mode with fixed wavenumber \( k \).
+- The electric field is restricted to one Langmuir mode with fixed wavenumber k.
 - The field amplitude evolves self-consistently from the particle current projected onto that mode.
 - Particles are evolved kinetically using a leapfrog integrator.
 
@@ -29,23 +29,16 @@ This approach retains the essential physics of linear growth, nonlinear trapping
   - Background Maxwellian
   - Drifting beam Maxwellian
 - Periodic spatial domain of length  
-  \[
-  L = \frac{2\pi}{k}
-  \]
+  L = 2π / k
 
 ### Field Representation
 The electric field is represented as a single cosine mode:
-\[
-E(x,t) = E(t)\cos(kx - \omega_p t)
-\]
-where the amplitude \( E(t) \) is evolved self-consistently.
+E(x, t) = E(t) cos(k x − ω_p t)
+where the amplitude E(t) is evolved self-consistently.
 
 ### Particle Dynamics
 Particles follow the Vlasov equation:
-\[
-\dot{x}_i = v_i, \qquad
-\dot{v}_i = -\frac{e}{m_e} E(x_i,t)
-\]
+dx_i/dt = v_i ,   dv_i/dt = −(e / m_e) E(x_i, t)
 and are advanced in time using a standard leapfrog scheme.
 
 ------
@@ -58,9 +51,7 @@ and are advanced in time using a standard leapfrog scheme.
 - Periodic boundary conditions in space
 
 The simulation is performed in **normalized units**:
-\[
-\omega_p = 1, \quad e = 1, \quad m_e = 1
-\]
+ω_p = 1 ,  e = 1 ,  m_e = 1
 allowing direct comparison between numerical growth rates and analytic predictions.
 
 ------
@@ -70,9 +61,9 @@ allowing direct comparison between numerical growth rates and analytic predictio
 The notebook includes diagnostics for both field-level and particle-level behavior:
 
 ### Field Diagnostics
-- Time evolution of the field amplitude \( |E(t)| \)
+- Time evolution of the field amplitude |E(t)|
 - Automated or manual identification of linear growth intervals
-- Exponential growth-rate fitting via linear regression of \( \log |E(t)| \)
+- Exponential growth-rate fitting via linear regression of log |E(t)|
 
 ### Particle Diagnostics
 - Velocity sampling of beam and background populations
